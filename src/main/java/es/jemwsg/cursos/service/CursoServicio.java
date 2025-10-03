@@ -27,7 +27,6 @@ import java.util.List;
 @Transactional
 public class CursoServicio {
     private final RepositorioCurso repo;
-    private final RepositorioAlumno repoAlumno;
     // Listar todos los cursos, en un proyecto grande añadiriamos paginación y filtros adicionales
     public List<Curso> listar() {
         return repo.findAll();
@@ -52,9 +51,5 @@ public class CursoServicio {
     // Eliminamos curso
     public void eliminar(Long id) {
         repo.delete(obtener(id));
-    }
-    // Contar alumnos por curso
-    public long contarAlumnos(Long cursoId) {
-        return repoAlumno.countByCursoId(cursoId);
     }
 }
